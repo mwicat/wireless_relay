@@ -1,7 +1,6 @@
 #include <WiFi.h>
 #include <Preferences.h>
 
-#include <esp_now.h>
 #include <WebServer.h>
 
 Preferences preferences;
@@ -10,7 +9,9 @@ String wifi_ssid;
 String wifi_password;
 String wifi_hostname = "thermostat-relay-1";
 
-WebServer server(80);
+const int http_server_port = 80;
+
+WebServer server(http_server_port);
 
 // set to true to initialize or reset credentials through serial line
 const int force_save_prefs = true;
